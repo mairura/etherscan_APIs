@@ -1,5 +1,5 @@
 // convert date to UNIX format
-// const date = parseInt((new Date('2023.02.02').getTime() / 1000).toFixed(0))
+// const date = parseInt((new Date('2023.01.01').getTime() / 1000).toFixed(0))
 // console.log(date)
 
 // Convert to UNIX to date
@@ -15,4 +15,4 @@ function timeConverter(UNIX_timestamp: any){
     var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
     return time;
   }
-  console.log(timeConverter(1675285200));
+  console.log(timeConverter(1672520400));

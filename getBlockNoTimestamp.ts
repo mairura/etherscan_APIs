@@ -3,7 +3,8 @@ import * as dotenv from "dotenv";
 dotenv.config({ path: __dirname+'/.env' });
 
 const API_KEY = process.env.API_KEY;
-const API_ENDPOINT =`https://api-goerli.etherscan.io/api?module=block&action=getblocknobytime&timestamp=1640984400&closest=before&apikey=${API_KEY}`;
+const TIME_STAMP = 1672520400;
+const API_ENDPOINT =`https://api-goerli.etherscan.io/api?module=block&action=getblocknobytime&timestamp=${TIME_STAMP}&closest=before&apikey=${API_KEY}`;
 console.log("Print the endpoint:",API_ENDPOINT);
 
 const ADDRESS: any = process.env.WALLET_ADDRESS;
