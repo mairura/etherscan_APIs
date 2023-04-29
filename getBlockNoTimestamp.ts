@@ -3,26 +3,24 @@ import * as dotenv from "dotenv";
 dotenv.config({ path: __dirname+'/.env' });
 
 const API_KEY = process.env.API_KEY;
-const TIME_STAMP = 1672520400;
-const API_ENDPOINT =`https://api-goerli.etherscan.io/api?module=block&action=getblocknobytime&timestamp=${TIME_STAMP}&closest=before&apikey=${API_KEY}`;
-console.log("Print the endpoint:",API_ENDPOINT);
 
-const ADDRESS: any = process.env.WALLET_ADDRESS;
+async function getBlockNumberByTime() {
+  const url = "https://api-goerli.etherscan.io/api";
+  const timestamp = "1672434000";
+  const closest = "before";
+  const apiKey = API_KEY;
 
-async function getBalance(address: string): Promise<string> {
-  const params = {
-    module: "account",
-    action: "balance",
-    address: address,
-    tag: "latest",
-    apikey: API_KEY,
-  };
+  const response = await axios.get(url, {
+    params: {
+      module: "block",
+      action: "getblocknobytime",
+      timestamp,
+      closest,
+      apikey: apiKey,
+    },
+  });
 
-  const response = await axios.get(API_ENDPOINT, { params });
-  return response.data.result;
+  console.log(response.data.result);
 }
 
-// Example usage:
-getBalance(ADDRESS).then((balance) => {
-  console.log("Balance:", balance);
-});
+getBlockNumberByTime();

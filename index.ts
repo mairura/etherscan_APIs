@@ -4,8 +4,8 @@ dotenv.config({ path: __dirname+'/.env' });
 
 const API_KEY = process.env.API_KEY;
 const ADDRESS = process.env.WALLET_ADDRESS;
-const START_BLOCK = 6126276; // block number when 2022 started
-const END_BLOCK = 8234704; // block number when 2022 ended
+const START_BLOCK = 6120516; // block number when 2022 started 
+const END_BLOCK = 8228852; // block number when 2022 ended 
 
 const API_URL = `https://api-goerli.etherscan.io/api?module=account&action=txlist&address=${ADDRESS}&startblock=${START_BLOCK}&endblock=${END_BLOCK}&page=1&offset=10&sort=asc&apikey=${API_KEY}`;
 console.log("The URL:", API_URL)
